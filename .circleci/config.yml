@@ -1,0 +1,15 @@
+# First, you need to set up the Google Cloud Translation API and authenticate your account.
+# Then, install the 'google-cloud-translate' module by running this command in the terminal:
+# pip install google-cloud-translate
+
+from google.cloud import translate_v2 as translate
+
+def translate_greek_to_english(text):
+    translate_client = translate.Client()
+    result = translate_client.translate(text, source_language='el', target_language='en')
+    return result['translatedText']
+
+# Example usage
+greek_text = "Γεια σου κόσμε"
+english_text = translate_greek_to_english(greek_text)
+print(english_text) # Output: "Hello world"
